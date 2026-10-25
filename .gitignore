@@ -1,0 +1,7 @@
+/build/
+/build-core/
+/data/*.ftms
+/data/*.tmp
+*.user
+*.suo
+.vs/
