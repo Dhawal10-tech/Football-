@@ -1,15 +1,15 @@
-# Test Cases
+# Manual Verification Checklist
 
-| ID | Input / action | Expected result | Status |
-|---|---|---|---|
-| FIX-01 | Generate schedules for 1–8 teams | Correct match counts; every pair appears once; no team appears twice per round | Pass |
-| VAL-01 | Duplicate team registration (case/space normalized) | Registration rejected | Pass |
-| VAL-02 | Duplicate jersey within a team | Registration rejected | Pass |
-| MATCH-01 | Enter and correct a result | Updated score and scorers replace prior result | Pass |
-| ST-01 | Results across a three-team sample | Correct P/W/D/L/GF/GA/GD/PTS ordering | Pass |
-| STAT-01 | Credit goals to a registered player | Player totals match recorded scorer entries | Pass |
-| FINAL-01 | Incomplete fixtures or unresolved first-place tie | Completion rejected | Pass |
-| STORE-01 | Save and reload tournament | Teams, players, matches, results, and scorers preserved | Pass |
-| STORE-02 | Load unsupported/malformed schema | Error reported; malformed records are not accepted | Pass |
+The consolidated root project does not currently include an automated test target. Use this checklist for a manual review before a presentation or release.
 
-Run the checks with `ctest --test-dir build --output-on-failure`. Current result: 1/1 CTest target passed. GUI interactions still need a manual Windows walkthrough.
+| Area | Action | Expected result |
+|---|---|---|
+| Referee access | Create an account, sign out, and sign in again | A referee can create and use a local account |
+| Registration | Add a tournament, two or more teams, and players | Records appear in their lists and persist after restart |
+| Fixtures | Start a tournament with an even and an odd number of teams | Each pair is scheduled once; odd schedules include a bye |
+| Results | Enter a score and scorer names using `Name=Goals` | The result saves and scorer totals update |
+| Validation | Enter a scorer not in the selected match or a goal count that exceeds the team score | The app explains why it rejected the entry |
+| Standings | Record wins, draws, and losses | Points and goal statistics update from completed matches |
+| Corrections | Edit a completed match result | The old score and scorer values are replaced |
+| Export | Export a CSV report | A report appears in `reports/<tournament-id>.csv` under the app working directory |
+| Recovery | Close and reopen the application | Tournament records remain available |

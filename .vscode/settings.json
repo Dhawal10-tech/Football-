@@ -1,0 +1,9 @@
+{
+  "cmake.cmakePath": "C:/msys64/ucrt64/bin/cmake.exe",
+  "cmake.generator": "Ninja",
+  "cmake.buildDirectory": "${workspaceFolder}/build",
+  "cmake.configureArgs": [
+    "-DCMAKE_CXX_COMPILER=C:/msys64/ucrt64/bin/g++.exe",
+    "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+  ]
+}

@@ -5,12 +5,12 @@
 Open an MSYS2 UCRT64 terminal in the project directory, then run:
 
 ```sh
-cmake -S . -B build -G Ninja -DCMAKE_CXX_COMPILER=g++
-cmake --build build
-./build/ftms.exe
+cmake -S . -B build -G Ninja -DCMAKE_CXX_COMPILER=C:/msys64/ucrt64/bin/g++.exe
+cmake --build build --config Debug
+./build/latest/ftms.exe
 ```
 
-The bundled DejaVu Sans font is loaded from `assets/fonts`. Data is stored in `data/tournaments.ftms`, relative to the process working directory. Do not delete or manually edit that file while the application is open.
+On first launch, create a referee account and then sign in. The bundled DejaVu Sans font is loaded from `assets/fonts`. Tournament data and referee credentials are stored in the project `data` folder. Do not delete or manually edit those files while the application is open.
 
 ## Create and manage a tournament
 
@@ -23,12 +23,12 @@ The bundled DejaVu Sans font is loaded from `assets/fonts`. Data is stored in `d
 
 - In **Teams**, choose **Add team** and provide a name plus optional manager/contact. Names are unique within a tournament without regard to case or surrounding spaces. Select a row to edit or delete it. A team cannot be deleted if fixtures or players refer to it.
 - In **Players**, choose **Register player**. The form lists numbered teams; enter a team number, jersey number from 1–99, and a position (Goalkeeper, Defender, Midfielder, or Forward). Select a row to edit/delete before fixtures are generated. Jersey numbers must be unique within each team.
-- IDs are generated automatically and are shown in the lists. Player IDs are used when entering goalscorers.
+- IDs are generated automatically and shown in the lists. For goalscorers, use player names from the selected match.
 
 ## Fixtures and results
 
 1. With at least two teams registered, open **Fixtures** or **Tournaments** and choose **Generate & start fixtures** / **Start tournament**. The circle method schedules every pair once; odd team counts receive a bye.
-2. Open **Matches & scores** and select a fixture. Enter both non-negative scores. Optional scorer records use `PLAYER-ID:GOALS`, separated by commas, for example `PLAYER-00001:2,PLAYER-00004:1`. The statistic total is based only on these explicit entries.
+2. Open **Matches & scores** and select a fixture. Enter both non-negative scores. Optional scorer records use `Player Name=Goals`, separated by commas. For example, if Messi scores twice and Mukesh once, enter `Messi=2, Mukesh=1`. The score form lists players eligible for that match. The goals credited to each team cannot exceed that team’s match score. The statistic total is based only on explicit scorer entries.
 3. Select a completed match again to correct its result. Saving replaces the old score and scorer list, so repeated submission does not double-count.
 4. Use `/` to open the search field and Enter to finish. The current list filters on the search phrase. Use the mouse wheel to scroll long lists.
 
@@ -41,7 +41,7 @@ The bundled DejaVu Sans font is loaded from `assets/fonts`. Data is stored in `d
 
 ## History and reports
 
-**History** lists completed tournaments, their state, teams, match count, and champion status. Select a historical tournament to view its teams, fixtures, standings, and player statistics in the other sections. **Reports** exports standings, player goals, and fixtures/results to `reports/<tournament-id>.csv`.
+**History** lists completed tournaments, their state, teams, match count, and champion status. Select a historical tournament to view its teams, fixtures, standings, and player statistics in the other sections. **Reports** exports standings, player goals, and fixtures/results to `reports/<tournament-id>.csv` under the app’s current working directory.
 
 ## Troubleshooting
 

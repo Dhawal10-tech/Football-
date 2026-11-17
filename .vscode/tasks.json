@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "FTMS: Configure",
+      "type": "shell",
+      "command": "C:/msys64/ucrt64/bin/cmake.exe",
+      "args": [
+        "-S", ".",
+        "-B", "build",
+        "-G", "Ninja",
+        "-DCMAKE_CXX_COMPILER=C:/msys64/ucrt64/bin/g++.exe"
+      ],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "FTMS: Build",
+      "type": "shell",
+      "command": "C:/msys64/ucrt64/bin/cmake.exe",
+      "args": ["--build", "build", "--config", "Debug"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "FTMS: Configure",
+      "problemMatcher": []
+    },
+    {
+      "label": "FTMS: Run",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/latest/ftms.exe",
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "FTMS: Build",
+      "problemMatcher": []
+    }
+  ]
+}

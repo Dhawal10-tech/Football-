@@ -1,7 +1,10 @@
-/build/
-/build-core/
-/data/*.ftms
-/data/*.tmp
+**/build/
+**/build-*/
+**/data/*.ftms
+**/data/*.tmp
+**/data/referees.db
+**/reports/
+src/tempCodeRunnerFile.cpp
 *.user
 *.suo
 .vs/
