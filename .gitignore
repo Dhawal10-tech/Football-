@@ -1,0 +1,22 @@
+# Build directories
+build/
+bin/
+*.obj
+*.o
+*.exe
+*.dll
+*.a
+*.lib
+
+# IDE & Editor files
+.vscode/
+.vs/
+*.user
+*.suo
+
+# Operating System files
+Thumbs.db
+Desktop.ini
+
+# Output data logs if any (keep data/ structure with .gitkeep)
+data/*.tmp
